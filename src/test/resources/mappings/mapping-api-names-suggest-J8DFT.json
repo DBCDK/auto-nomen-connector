@@ -1,0 +1,22 @@
+{
+  "id" : "a630da4d-4fbf-37ef-8f4d-2ded1f8c2798",
+  "request" : {
+    "url" : "/api/names/suggest",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"article-id\":\"\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-api-names-suggest-J8DFT.txt",
+    "headers" : {
+      "Server" : "TornadoServer/6.1",
+      "Content-Type" : "text/html; charset=UTF-8",
+      "Date" : "Mon, 25 Jan 2021 11:53:43 GMT"
+    }
+  },
+  "uuid" : "a630da4d-4fbf-37ef-8f4d-2ded1f8c2798"
+}

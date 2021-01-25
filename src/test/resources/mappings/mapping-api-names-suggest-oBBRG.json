@@ -1,0 +1,22 @@
+{
+  "id" : "eb0ecdd7-3152-3775-941f-e819283ee5aa",
+  "request" : {
+    "url" : "/api/names/suggest",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"article-id\":\"julemanden\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-api-names-suggest-oBBRG.txt",
+    "headers" : {
+      "Server" : "TornadoServer/6.1",
+      "Content-Type" : "text/html; charset=UTF-8",
+      "Date" : "Mon, 25 Jan 2021 11:53:44 GMT"
+    }
+  },
+  "uuid" : "eb0ecdd7-3152-3775-941f-e819283ee5aa"
+}
