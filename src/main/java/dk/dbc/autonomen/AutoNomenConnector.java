@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
-import java.time.Duration;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
@@ -24,14 +23,11 @@ public class AutoNomenConnector {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoNomenConnector.class);
 
     private static final String NAMES_SUGGEST = "/api/names/suggest";
-    private static final RetryPolicy<Response> RETRY_POLICY = new RetryPolicy<Response>()
-            .handle(Collections.singletonList(ProcessingException.class))
-            .handleResultIf(response ->
-                    response.getStatus() == 500
-                            || response.getStatus() == 502)
-            .withDelay(Duration.ofSeconds(5))
+    private static final RetryPolicy RETRY_POLICY = new RetryPolicy()
+            .retryOn(Collections.singletonList(ProcessingException.class))
+            .retryIf((Response response) -> response.getStatus() == 500 || response.getStatus() == 502)
+            .withDelay(5, TimeUnit.SECONDS)
             .withMaxRetries(3);
-
     private final FailSafeHttpClient failSafeHttpClient;
     private final String baseUrl;
 
