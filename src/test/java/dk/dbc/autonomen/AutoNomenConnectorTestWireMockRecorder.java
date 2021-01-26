@@ -25,7 +25,8 @@ public class AutoNomenConnectorTestWireMockRecorder {
     }
 
     private static void allTests(AutoNomenConnectorTest autoNomenConnectorTest) throws AutoNomenConnectorException {
-        autoNomenConnectorTest.getSuggestionsTestOkSimple();
+        autoNomenConnectorTest.getSuggestionsTestSingleAuthor();
+        autoNomenConnectorTest.getSuggestionsTestTwoAuthors();
         autoNomenConnectorTest.getSuggestionsTestError();
     }
 }

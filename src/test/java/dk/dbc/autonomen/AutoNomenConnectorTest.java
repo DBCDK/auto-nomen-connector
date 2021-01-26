@@ -49,12 +49,24 @@ class AutoNomenConnectorTest {
     }
 
     @Test
-    void getSuggestionsTestOkSimple() throws AutoNomenConnectorException {
+    void getSuggestionsTestSingleAuthor() throws AutoNomenConnectorException {
         final AutoNomenSuggestions actual = connector.getSuggestions("e6ec1122");
 
         assertThat(actual.getAutNames().size(), is(1));
         assertThat(actual.getAutNames().get(0).getInputName(), is("Jens Rebensdorff"));
         assertThat(actual.getAutNames().get(0).getAuthority(), is("19180557"));
+        assertThat(actual.getNerNames().size(), is(0));
+    }
+
+    @Test
+    void getSuggestionsTestTwoAuthors() throws AutoNomenConnectorException {
+        final AutoNomenSuggestions actual = connector.getSuggestions("e80cefac");
+
+        assertThat(actual.getAutNames().size(), is(2));
+        assertThat(actual.getAutNames().get(0).getInputName(), is("Ida Sejersdal Dreiager"));
+        assertThat(actual.getAutNames().get(0).getAuthority(), is("48654452"));
+        assertThat(actual.getAutNames().get(1).getInputName(), is("Sophie Kaae Jørgensen"));
+        assertThat(actual.getAutNames().get(1).getAuthority(), is("48820034"));
         assertThat(actual.getNerNames().size(), is(0));
     }
 

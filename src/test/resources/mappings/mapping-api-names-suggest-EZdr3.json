@@ -1,0 +1,22 @@
+{
+  "id" : "01ff4173-5ed3-3c5c-a8f8-9301e8d76c46",
+  "request" : {
+    "url" : "/api/names/suggest",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"article-id\":\"e80cefac\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-api-names-suggest-EZdr3.json",
+    "headers" : {
+      "Server" : "TornadoServer/6.1",
+      "Content-Type" : "application/json",
+      "Date" : "Tue, 26 Jan 2021 07:58:52 GMT"
+    }
+  },
+  "uuid" : "01ff4173-5ed3-3c5c-a8f8-9301e8d76c46"
+}
