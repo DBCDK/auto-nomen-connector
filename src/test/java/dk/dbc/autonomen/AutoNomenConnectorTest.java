@@ -49,6 +49,14 @@ class AutoNomenConnectorTest {
     }
 
     @Test
+    void getSuggestionsTestNoAuthors() throws AutoNomenConnectorException {
+        final AutoNomenSuggestions actual = connector.getSuggestions("e818b61d");
+
+        assertThat(actual.getAutNames().size(), is(0));
+        assertThat(actual.getNerNames().size(), is(0));
+    }
+
+    @Test
     void getSuggestionsTestSingleAuthor() throws AutoNomenConnectorException {
         final AutoNomenSuggestions actual = connector.getSuggestions("e6ec1122");
 

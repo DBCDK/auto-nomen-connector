@@ -1,0 +1,22 @@
+{
+  "id" : "5715c967-04f6-3c0f-9520-2c1426abd528",
+  "request" : {
+    "url" : "/api/names/suggest",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"article-id\":\"e818b61d\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-api-names-suggest-uqJbJ.json",
+    "headers" : {
+      "Server" : "TornadoServer/6.1",
+      "Content-Type" : "application/json",
+      "Date" : "Tue, 26 Jan 2021 11:52:24 GMT"
+    }
+  },
+  "uuid" : "5715c967-04f6-3c0f-9520-2c1426abd528"
+}
