@@ -16,16 +16,19 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class AutoNomenConnector {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoNomenConnector.class);
 
+    private static final List<Integer> RETRY_STATUS_CODES = Arrays.asList(404, 500, 502);
     private static final String NAMES_SUGGEST = "/api/names/suggest";
     private static final RetryPolicy RETRY_POLICY = new RetryPolicy()
             .retryOn(Collections.singletonList(ProcessingException.class))
-            .retryIf((Response response) -> response.getStatus() == 500 || response.getStatus() == 502)
+            .retryIf((Response response) -> RETRY_STATUS_CODES.contains(response.getStatus()))
             .withDelay(5, TimeUnit.SECONDS)
             .withMaxRetries(3);
     private final FailSafeHttpClient failSafeHttpClient;

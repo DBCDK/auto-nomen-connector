@@ -1,6 +1,7 @@
 {
   "scenarioName": "Fail first time",
-  "requiredScenarioState": "Return ok",
+  "requiredScenarioState": "Started",
+  "newScenarioState": "Return ok",
   "id" : "d549c516-22f4-3435-9684-ed9a5ca8aa5b",
   "request" : {
     "url" : "/api/names/suggest",
@@ -12,11 +13,11 @@
     } ]
   },
   "response" : {
-    "status" : 200,
-    "bodyFileName" : "body-api-names-suggest-xy5KD.json",
+    "status" : 404,
+    "bodyFileName" : "body-api-names-suggest-xy5KD-failed.txt",
     "headers" : {
       "Server" : "TornadoServer/6.1",
-      "Content-Type" : "application/json",
+      "Content-Type" : "text/html; charset=UTF-8",
       "Date" : "Mon, 25 Jan 2021 09:52:47 GMT"
     }
   },
