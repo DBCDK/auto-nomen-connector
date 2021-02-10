@@ -18,13 +18,14 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class AutoNomenConnector {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoNomenConnector.class);
 
-    private static final List<Integer> RETRY_STATUS_CODES = Arrays.asList(404, 500, 502);
+    private static final Set<Integer> RETRY_STATUS_CODES = new HashSet<>(Arrays.asList(404, 500, 502));
     private static final String NAMES_SUGGEST = "/api/names/suggest";
     private static final RetryPolicy RETRY_POLICY = new RetryPolicy()
             .retryOn(Collections.singletonList(ProcessingException.class))
