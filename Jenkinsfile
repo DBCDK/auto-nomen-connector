@@ -10,6 +10,10 @@ pipeline {
 	options {
 		timestamps()
 	}
+	tools {
+		jdk 'jdk11'
+		maven 'Maven 3'
+	}
 	stages {
 		stage("clear workspace") {
 			steps {
@@ -19,10 +23,8 @@ pipeline {
 		}
 		stage("verify") {
 			steps {
-				withMaven(maven: 'Maven 3') {
-					sh "mvn verify pmd:pmd javadoc:aggregate"
-					junit "target/surefire-reports/TEST-*.xml"
-				}
+				sh "mvn verify pmd:pmd javadoc:aggregate"
+				junit "target/surefire-reports/TEST-*.xml"
 			}
 		}
 		stage("warnings") {
